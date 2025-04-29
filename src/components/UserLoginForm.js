@@ -25,10 +25,13 @@ const UserLoginForm = () => {
     }
 
     try {
-      const response = await axios.post("/api/v1/users/login", {
-        email: userId,
-        password: password,
-      });
+      const response = await axios.post(
+        "http://13.201.123.101:8000/api/v1/users/login",
+        {
+          email: userId,
+          password: password,
+        }
+      );
 
       if (response.data.success) {
         localStorage.setItem("isAuthenticated", "true");
@@ -89,7 +92,7 @@ const UserLoginForm = () => {
           className="w-full px-4 py-2 border border-gray-300 rounded-lg"
           required
         />
-                <Captcha onChange={handleCaptchaChange} />
+        <Captcha onChange={handleCaptchaChange} />
         <button
           type="submit"
           className="w-full bg-blue-600 text-white py-3 rounded-lg flex items-center justify-center gap-2 hover:bg-blue-700"

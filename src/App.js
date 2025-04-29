@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./App.css";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 // import ServiceForm from "./commponents/ServiceForm";
@@ -65,6 +65,7 @@ import CertifiedRenDepositList from "./commponents/CertifiedRenDepositList";
 import ApplicationForm22 from "./userForm22/ApplicationForm22";
 import Form22 from "./userForm22/Form22";
 import ApplicationApproval from "./DepartmentComponent/DepartmentComponent/ApplicationApproval";
+import axios from "axios";
 
 function App() {
   const [formData, setFormData] = useState({
@@ -79,6 +80,16 @@ function App() {
     wardNo: "",
     nagarpalika: "",
   });
+  // const currentUser = async () => {
+  //   console.log("Current user");
+  //   const res = await axios.get(
+  //     "https://sra-government-project-thane-1.onrender.com/api/v1/users/current-user"
+  //   );
+  //   console.log("Current user res", res);
+  // };
+  // useEffect(() => {
+  //   currentUser();
+  // }, []);
 
   return (
     <Router>
@@ -131,7 +142,10 @@ function App() {
             <Route path="/courses" element={<UserCourse />} />
             <Route path="/deptform" element={<DeptForm />} />
             <Route path="/remarks" element={<Remark />} />
-            <Route path="/applicationapproval" element={<ApplicationApproval />} />
+            <Route
+              path="/applicationapproval"
+              element={<ApplicationApproval />}
+            />
             <Route path="/form1" element={<Form1 />} />
             <Route path="/form2" element={<Form2 />} />
             <Route path="/form3" element={<Form3 />} />
