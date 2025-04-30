@@ -3,7 +3,6 @@ import { useNavigate } from "react-router-dom";
 import "../styles/css/Home.css";
 import servicesData from "../data/services.json";
 
-
 // Import images
 import logo from "../images/logo.png";
 import serviceIcon from "../images/logo.png";
@@ -30,7 +29,7 @@ import UserForm from "../components/UserForm";
 import UserLoginForm from "./UserLoginForm";
 
 function Home() {
-  const services = servicesData[0].services
+  const services = servicesData[0].services;
   const [activeNav, setActiveNav] = useState("home");
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [captchaText, setCaptchaText] = useState("");
@@ -115,33 +114,31 @@ function Home() {
               />
             </div> */}
             <div className="bg-white rounded-xl shadow-md overflow-hidden">
-          <div className="grid grid-cols-12 gap-4 py-4 px-6 bg-blue-100 font-semibold text-blue-800 text-sm lg:text-base">
-            <div className="col-span-1 text-center">क्र.</div>
-            <div className="col-span-11">सेवा वर्णन</div>
-          </div>
-          <div className="max-h-[600px] overflow-y-auto scrollbar-hide divide-y divide-gray-200">
-  {services.map((service) => (
-    <div
-      key={service.id}
-      className="grid grid-cols-12 gap-4 py-5 px-6 hover:bg-gray-100 transition-all duration-200 ease-in-out"
-    >
-      <div className="col-span-1 text-center font-medium text-blue-600 text-sm lg:text-lg">
-        {service.id}
-      </div>
-      <div className="col-span-11 text-gray-700 text-sm lg:text-lg">
-        {service.description}
-      </div>
-    </div>
-  ))}
-</div>
-
-        </div>
-
+              <div className="grid grid-cols-12 gap-4 py-4 px-6 bg-blue-100 font-semibold text-blue-800 text-sm lg:text-base">
+                <div className="col-span-1 text-center">क्र.</div>
+                <div className="col-span-11">सेवा वर्णन</div>
+              </div>
+              <div className="max-h-[600px] overflow-y-auto scrollbar-hide divide-y divide-gray-200">
+                {services.map((service) => (
+                  <div
+                    key={service.id}
+                    className="grid grid-cols-12 gap-4 py-5 px-6 hover:bg-gray-100 transition-all duration-200 ease-in-out"
+                  >
+                    <div className="col-span-1 text-center font-medium text-blue-600 text-sm lg:text-lg">
+                      {service.id}
+                    </div>
+                    <div className="col-span-11 text-gray-700 text-sm lg:text-lg">
+                      {service.description}
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
           </div>
 
           {/* Login Section */}
           <section
-            className="login-section w-full max-w-md lg:max-w-none lg:w-40"
+            className="login-section w-full max-w-md lg:max-w-none "
             ref={loginSectionRef}
           >
             {showOfficerLogin ? (
@@ -156,7 +153,8 @@ function Home() {
                     className="register-btn bg-blue-600 text-white px-6 py-3 rounded-lg flex items-center justify-center gap-2 hover:bg-blue-700 transition-colors"
                     onClick={handleShowSignup}
                   >
-                    <FaUserPlus className=" h-[50px] w-[50px]" /> NEW USER REGISTER HERE
+                    <FaUserPlus className=" h-[50px] w-[50px]" /> NEW USER
+                    REGISTER HERE
                   </button>
                   <button
                     className="login-btn bg-green-600 text-white px-6 py-3 rounded-lg flex items-center justify-center gap-2 hover:bg-green-700 transition-colors"
